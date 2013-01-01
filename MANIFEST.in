@@ -1,0 +1,4 @@
+include README.md LICENSE
+recursive-include examples *
+recursive-exclude examples *.pyc
+recursive-exclude examples *.pyo
