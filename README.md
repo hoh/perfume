@@ -13,24 +13,24 @@ Usage:
 Perfume is Easy
 ```````````````
 
-::
+```python
+from perfume import Perfume, route
 
-    from perfume import Perfume, route
+class Hello(Perfume):
 
-    class Hello(Perfume):
+    @route('/')
+    def hello(self):
+        return "Hello World !"
 
-        @route('/')
-        def hello(self):
-            return "Hello World !"
-
-    if __name__ == "__main__":
-        Hello().run()
+if __name__ == "__main__":
+    Hello().run()
+```
 
 And Easy to Setup
 `````````````````
 
-::
-
-    $ pip install Perfume
-    $ python hello.py
-     * Running on http://localhost:5000/
+```bash
+$ pip install Perfume
+$ python hello.py
+ * Running on http://localhost:5000/
+```
