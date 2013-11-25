@@ -1,5 +1,5 @@
 Perfume
--------
+===
 
 Perfume aims at making Flask-apps more Object-Oriented friendly
 by providing a base class to create them.
@@ -11,7 +11,8 @@ Usage:
 - decorate your methods with route(path)
 
 Perfume is Easy
-```````````````
+---
+
 
 ```python
 from perfume import Perfume, route
@@ -27,7 +28,7 @@ if __name__ == "__main__":
 ```
 
 And Easy to Setup
-`````````````````
+---
 
 ```bash
 $ pip install Perfume
