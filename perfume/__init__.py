@@ -36,10 +36,11 @@ __all__ = 'route', 'Perfume'
 from flask import Flask
 
 
-def route(regex):
+def route(regex, **kwds):
     'Decorates your function with a route as "function.perfume_route = ..."'
     def decorator(func):
         func.perfume_route = regex
+        func.perfume_args = kwds
         return func
     return decorator
 
@@ -57,7 +58,10 @@ class Perfume(object):
         for name in dir(self):
             method = self.__getattribute__(name)
             try:
-                self.app.route(method.perfume_route)(method)
+                self.app.route(
+                    method.perfume_route,
+                    **method.perfume_args
+                    )(method)
             except AttributeError:
                 pass
 
