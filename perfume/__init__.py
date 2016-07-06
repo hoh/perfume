@@ -68,7 +68,7 @@ class Perfume(object):
                 **method.perfume_args
                 )(method)
 
-    def run(self):
-        self.app.run()
+    def run(self, *args, **kwds):
+        self.app.run(*args, **kwds)
 
 
