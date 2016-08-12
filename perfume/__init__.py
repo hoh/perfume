@@ -58,15 +58,12 @@ class Perfume(object):
         for name in dir(self):
             method = self.__getattribute__(name)
             try:
-                method.perfume_route
-                method.perfume_args
+                route = method.perfume_route
+                args = method.perfume_args
             except AttributeError:
                 continue
 
-            self.app.route(
-                method.perfume_route,
-                **method.perfume_args
-                )(method)
+            self.app.route(route, **args)(method)
 
     def run(self, *args, **kwds):
         self.app.run(*args, **kwds)
