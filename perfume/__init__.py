@@ -47,10 +47,26 @@ def route(regex, **kwds):
 
 class Perfume(object):
 
-    def __init__(self, debug=False):
-        ''
-        self.app = Flask(__name__)
-        self.app.debug = debug
+    def __init__(self, import_name,
+                 static_url_path=None,
+                 static_folder="static",
+                 static_host=None,
+                 host_matching=False,
+                 subdomain_matching=False,
+                 template_folder="templates",
+                 instance_path=None,
+                 instance_relative_config=False,
+                 root_path=None):
+        self.app = Flask(import_name=import_name,
+                         static_url_path=static_url_path,
+                         static_folder=static_folder,
+                         static_host=static_host,
+                         host_matching=host_matching,
+                         subdomain_matching=subdomain_matching,
+                         template_folder=template_folder,
+                         instance_path=instance_path,
+                         instance_relative_config=instance_relative_config,
+                         root_path=root_path)
         self._load()
 
     def _load(self):
@@ -65,7 +81,6 @@ class Perfume(object):
 
             self.app.route(route, **args)(method)
 
-    def run(self, *args, **kwds):
-        self.app.run(*args, **kwds)
-
+    def run(self, host=None, port=None, debug=None, load_dotenv=True, **options):
+        self.app.run(host=host, port=port, debug=debug, load_dotenv=load_dotenv, **options)
 

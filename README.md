@@ -15,6 +15,9 @@ Perfume is Easy
 
 
 ```python
+import os
+from flask import render_template
+
 from perfume import Perfume, route
 
 class Hello(Perfume):
@@ -24,7 +27,9 @@ class Hello(Perfume):
         return "Hello World !"
 
 if __name__ == "__main__":
-    Hello().run()
+    Hello(__name__,
+          template_folder=os.path.join(os.getcwd(), 'templates'),
+          ).run(debug=True)
 ```
 
 And Easy to Setup
